@@ -1,7 +1,10 @@
-cookbook_file "/etc/yum.repos.d/MariaDB.repo" do
-	source "MariaDB.repo"
+
+
+template "/etc/yum.repos.d/MariaDB.repo" do
+	source "MariaDB.repo.erb"
 end
 
+pp node["kernel"]
 %w[MariaDB-server MariaDB-client MariaDB-devel MariaDB-common].each do |pkg|
 	package pkg do
 		# action :remove
