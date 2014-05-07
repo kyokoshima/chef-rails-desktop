@@ -11,22 +11,24 @@ service "iptables" do
 	action [:disable, :stop]
 end
 
-include_recipe "rails-desktop::ntp"
+include_recipe "rails_desktop::ntp"
 
-include_recipe "rails-desktop::i18n"
+include_recipe "rails_desktop::i18n"
 
 # include_recipe "rails-desktop::user"
 # git
 include_recipe "git::source"
 # rbenv
-include_recipe "rails-desktop::ruby"
+include_recipe "rails_desktop::ruby"
 
-include_recipe "rails-desktop::rails"
+include_recipe "rails_desktop::rails"
 
-include_recipe "rails-desktop::nginx"
+include_recipe "rails_desktop::nginx"
 
-include_recipe "vim::source"
+include_recipe "rails_desktop::vim"
 
 package "zsh"
 
-include_recipe "rails-desktop::db"
+include_recipe "rails_desktop::db"
+
+include_recipe "rails_desktop::vagrant"
