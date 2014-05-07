@@ -1,14 +1,22 @@
 
+machine = node["kernel"]["machine"]
+
 
 template "/etc/yum.repos.d/MariaDB.repo" do
+	if machine =~ /^[ix]{1}\w*6$/
+		arch = "x86"
+	else
+		arch = "amd64"
+	end
+	node.default['rails_desktop']['mariadb']['arch'] = arch
 	source "MariaDB.repo.erb"
 end
 
-pp node["kernel"]
+# pp node["kernel"]
 %w[MariaDB-server MariaDB-client MariaDB-devel MariaDB-common].each do |pkg|
 	package pkg do
-		# action :remove
 		action :install
+		subscribes :create, "template[/etc/yum.repos.d/MariaDB.repo]"
 	end
 end
 
