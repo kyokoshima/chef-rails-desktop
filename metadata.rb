@@ -1,4 +1,4 @@
-name             'rails-desktop'
+name             'rails_desktop'
 maintainer       'tmpla.info'
 maintainer_email 'dev.kyoko@gmail.com'
 license          'All rights reserved'
