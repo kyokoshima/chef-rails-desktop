@@ -11,6 +11,8 @@ service "iptables" do
 	action [:disable, :stop]
 end
 
+include_recipe "rails_desktop::yum"
+
 include_recipe "rails_desktop::ntp"
 
 include_recipe "rails_desktop::i18n"
