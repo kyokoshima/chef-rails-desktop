@@ -31,6 +31,7 @@ include_recipe "rails_desktop::vim"
 
 package "zsh"
 
-include_recipe "rails_desktop::db"
+# include_recipe "rails_desktop::db"
+include_recipe "mariadb"
 
 include_recipe "rails_desktop::vagrant"
